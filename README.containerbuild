@@ -1,0 +1,6 @@
+#build image from configuration file (containerbuilder)
+sudo singularity build rumrocksapptainer.img containerbuilder
+
+#build container (directory) from image
+sudo singularity build --sandbox rumrockscontainer/ rumrocksapptainer.img
+

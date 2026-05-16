@@ -1,0 +1,32 @@
+Bootstrap: yum
+
+OSVersion: 9
+
+MirrorURL: https://mirrors.upr.edu/almalinux/%{OSVersion}/BaseOS/x86_64/os/
+
+Include: yum
+
+%post
+
+   echo "Hello from inside the container"
+   yum -y install almalinux-repos
+   yum -y install nano tzdata
+   yum -y install sudo
+   yum -y install git
+   yum -y install make
+   yum -y install tar
+   yum -y install rpm-build
+   yum -y install cmake
+   yum -y install gcc-toolset-12-gcc gcc-toolset-12-gcc-c++ gcc-toolset-12-binutils gcc-toolset-12-annobin-annocheck gcc-toolset-12-annobin-plugin-gcc
+   yum -y install openssl-devel ncurses-devel rpcgen gcc gcc-c++ gcc-gfortran zlib-devel
+   yum -y --enablerepo=crb install swig libtirpc-devel file-devel meson gobject-introspection-devel
+   yum -y install libffi-devel bzip2-devel xz-devel libxml2-devel libxslt-devel glib2-devel cairo-gobject-devel
+   yum -y install python3-mako python3-markdown flex bison
+   yum -y install yum-utils createrepo_c
+   yum -y install epel-release
+   yum -y install libtomcrypt-devel
+
+   mkdir -p /export/rumrocks9build
+   mkdir -p /export/rumrocks
+   mkdir -p /opt
+
